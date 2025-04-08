@@ -1,2 +1,114 @@
 <!DOCTYPE html>
-<!-- (코드 생략 - 실제 detail.html 코드 전체 삽입 필요) -->
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>테스트 상세 페이지</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #f9fbfd;
+      color: #333;
+    }
+    header {
+      background: #fff;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #eee;
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #4a90e2;
+    }
+    .test-detail-container {
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 0 20px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    }
+    .test-title {
+      font-size: 28px;
+      font-weight: bold;
+      padding: 30px 20px 10px;
+      border-bottom: 1px solid #eee;
+    }
+    .test-image {
+      width: 100%;
+      max-height: 360px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin: 20px 0;
+    }
+    .test-description {
+      font-size: 16px;
+      line-height: 1.7;
+      padding: 0 20px 30px;
+    }
+    .start-button {
+      display: block;
+      margin: 0 auto 30px;
+      background-color: #4a90e2;
+      color: #fff;
+      padding: 14px 28px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .start-button:hover {
+      background-color: #357acc;
+    }
+    .ad-banner {
+      margin: 40px auto;
+      width: 100%;
+      max-width: 728px;
+      height: 90px;
+      background: #ccc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: #444;
+      border-radius: 8px;
+    }
+    footer {
+      background: #fff;
+      padding: 30px 20px;
+      text-align: center;
+      font-size: 14px;
+      color: #999;
+      border-top: 1px solid #eee;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">TESTii</div>
+  </header>
+
+  <main class="test-detail-container">
+    <h1 class="test-title">나와 닮은 드라마 캐릭터는?</h1>
+    <img class="test-image" src="https://via.placeholder.com/800x360?text=Test+Banner" alt="Test Banner">
+    <div class="test-description">
+      당신이 어떤 드라마 캐릭터와 닮았는지 알고 싶으신가요? <br>
+      이 테스트는 성격과 행동 유형을 분석하여 인기 드라마 캐릭터 중 누구와 가장 비슷한지 알려줍니다. <br><br>
+      총 12문항으로 구성되어 있으며, 모든 질문에 솔직하게 답해주세요!
+    </div>
+    <button class="start-button">테스트 시작하기</button>
+  </main>
+
+  <div class="ad-banner">Google 광고 배너 자리 (728x90)</div>
+
+  <footer>
+    © 2025 TESTii. All rights reserved. | contact@test-it.co.kr
+  </footer>
+</body>
+</html>
