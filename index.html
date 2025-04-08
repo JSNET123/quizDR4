@@ -1,2 +1,246 @@
 <!DOCTYPE html>
-<!-- (코드 생략 - 실제 index.html 코드 전체 삽입 필요) -->
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TESTii - 성격 테스트 플랫폼</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --main-color: #4a90e2;
+      --bg-light: #f9fbfd;
+      --text-dark: #333;
+      --text-muted: #888;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    body {
+      background: var(--bg-light);
+      color: var(--text-dark);
+    }
+
+    header {
+      background: #fff;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #eee;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    header .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: var(--main-color);
+    }
+    header nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: var(--text-dark);
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+    header nav a:hover {
+      color: var(--main-color);
+    }
+
+    .banner {
+      background: var(--main-color);
+      padding: 100px 20px;
+      text-align: center;
+      font-size: 36px;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .filter-bar {
+      text-align: right;
+      padding: 20px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .filter-bar select {
+      padding: 8px 12px;
+      font-size: 14px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    .main-section {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .side-ad {
+      width: 120px;
+      height: 600px;
+      background: #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: #444;
+    }
+
+    @media (max-width: 768px) {
+      .side-ad {
+        display: none;
+      }
+    }
+
+    .content {
+      flex: 1;
+    }
+
+    .test-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      padding: 0 24px 40px;
+    }
+    .test-card, .ad-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      height: 360px;
+    }
+    .test-card:hover {
+      transform: translateY(-6px);
+    }
+    .test-card img, .ad-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+    .test-card h3 {
+      padding: 20px;
+      font-size: 18px;
+      text-align: center;
+      flex-grow: 1;
+    }
+    .ad-card .ad-images {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .ad-card .ad-images img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    footer {
+      background: #fff;
+      text-align: center;
+      padding: 40px 16px;
+      font-size: 14px;
+      color: var(--text-muted);
+      border-top: 1px solid #eee;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">TESTii</div>
+    <nav>
+      <a href="#">성격</a>
+      <a href="#">얼굴</a>
+      <a href="#">그외</a>
+      <a href="#">사주</a>
+    </nav>
+  </header>
+
+  <div class="banner">나에게 딱 맞는 테스트를 찾아보세요!</div>
+
+  <div class="filter-bar">
+    <label for="sort">정렬: </label>
+    <select id="sort">
+      <option value="latest" selected>최신순</option>
+      <option value="popular">인기순</option>
+    </select>
+  </div>
+
+  <div class="main-section">
+    <div class="side-ad">좌측 광고</div>
+
+    <div class="content">
+      <div class="test-list" id="testList">
+        <!-- 카드가 JavaScript로 생성됨 -->
+      </div>
+    </div>
+
+    <div class="side-ad">우측 광고</div>
+  </div>
+
+  <footer>
+    © 2025 TESTii. All rights reserved. | contact@test-it.co.kr
+  </footer>
+
+  <script>
+    const testData = [
+      { title: '테스트 제목 1', image: 'https://via.placeholder.com/280x160?text=Test+1', url: '#', clicks: 3 },
+      { title: '테스트 제목 2', image: 'https://via.placeholder.com/280x160?text=Test+2', url: '#', clicks: 8 },
+      { ad: true },
+      { title: '테스트 제목 3', image: 'https://via.placeholder.com/280x160?text=Test+3', url: '#', clicks: 10 },
+      { title: '테스트 제목 4', image: 'https://via.placeholder.com/280x160?text=Test+4', url: '#', clicks: 2 },
+      { title: '테스트 제목 5', image: 'https://via.placeholder.com/280x160?text=Test+5', url: '#', clicks: 5 },
+      { ad: true },
+      { title: '테스트 제목 6', image: 'https://via.placeholder.com/280x160?text=Test+6', url: '#', clicks: 1 },
+    ];
+
+    function renderTests(data) {
+      const container = document.getElementById('testList');
+      container.innerHTML = '';
+
+      data.forEach((item, index) => {
+        let card;
+        if (item.ad) {
+          card = `
+            <div class="ad-card">
+              <div class="ad-images">
+                <img src="https://via.placeholder.com/280x160?text=Ad+1" alt="Ad 1">
+                <img src="https://via.placeholder.com/280x160?text=Ad+2" alt="Ad 2">
+              </div>
+            </div>
+          `;
+        } else {
+          card = `
+            <div class="test-card" onclick="window.location.href='${item.url}'">
+              <img src="${item.image}" alt="${item.title}">
+              <h3>${item.title}</h3>
+            </div>
+          `;
+        }
+        container.insertAdjacentHTML('beforeend', card);
+      });
+    }
+
+    document.getElementById('sort').addEventListener('change', (e) => {
+      const sorted = [...testData];
+      if (e.target.value === 'popular') {
+        sorted.sort((a, b) => (b.clicks || 0) - (a.clicks || 0));
+      }
+      renderTests(sorted);
+    });
+
+    renderTests(testData);
+  </script>
+</body>
+</html>
